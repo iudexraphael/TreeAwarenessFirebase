@@ -27,7 +27,7 @@ namespace TreeAwarenessFirebase.View
 
         string lat = "47.673988";
         string lon = "-122.121513";
-        string address = "Microsoft Building 25 Redmond WA USA";
+        string address = "227b MacArthur Hwy, Angeles, Pampanga, Philippines";
         string geocodeAddress;
         string geocodePosition;
 
