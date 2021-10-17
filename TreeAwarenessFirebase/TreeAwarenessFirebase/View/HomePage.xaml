@@ -1,11 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TreeAwarenessFirebase.View.HomePage">
-    <ContentPage.Content>
-        <Grid BackgroundColor="ForestGreen">
 
-            <Grid.RowDefinitions>
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+
+        
+
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.Resources>
+         
+            <StyleSheet Source="../Styles/style.css" />
+        </ContentPage.Resources>
+
+
+        <Grid BackgroundColor="ForestGreen">
+       
+        <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
@@ -19,8 +34,11 @@
             <Grid>
                 <Image Source="sb4345mttum41.jpg" VerticalOptions="Center" Aspect="AspectFit"/>
             </Grid>
-            <ScrollView Grid.Row="1">
+       
+        <ScrollView Grid.Row="1"  x:Name="Form"  StyleClass="body">
+            
                 <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                    
                     <Label FontSize="22">
                         <Label.FormattedText>
                             <FormattedString>
@@ -32,6 +50,7 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
+                    
                     <Label>
                         <Label.FormattedText>
                             <FormattedString>
@@ -57,25 +76,35 @@
                     </Label>
                     <Grid x:Name="MainGrid">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
+
+
+                        <RowDefinition  Height="160" />
+                        <RowDefinition  Height="150" />
+                            
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition  />
-                            <ColumnDefinition Width="auto" />
-                            <ColumnDefinition Width="auto" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Button Margin="0,50,0,0" Text="Garden of Words" Clicked="MessageNextPage"  Grid.Row="0"></Button>
-                        <Button Margin="0,10,0,0" Text="Great Greenhouse" Clicked="ProjNextPage" Grid.Row="1"></Button>
-                        <!--    <Button Margin="0,10,0,0" Text="Plant your thoughts"  Clicked="PlantAtGardenPage" Grid.Row="2" />  -->
-                        <Button Margin="0,10,0,0" Text="About"  Clicked="AboutNextPage" Grid.Row="3"></Button>
-                        <Image ></Image>
-                    </Grid>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition   Width="1*" />
+                      
+                    </Grid.ColumnDefinitions>
+                    <StackLayout VerticalOptions="Center">
+                       
+                    </StackLayout>
+
+                    <Button Text="Garden of Words" Clicked="MessageNextPage"  Grid.Row="0" Grid.Column="0" />
+                    
+                        <Button Text="Great Greenhouse" Clicked="ProjNextPage" Grid.Row="0" Grid.Column="1"/>
+
+
+                    <Button Text="Plant your thoughts" Clicked="MessageNextPage"  Grid.Row="1" Grid.Column="0" />
+
+                    <Button Text="About"  Clicked="AboutNextPage"  Grid.Row="1" Grid.Column="1" />
+                </Grid>
+                
+
                 </StackLayout>
+                    
             </ScrollView>
         </Grid>
-    </ContentPage.Content>
+  
 </ContentPage>

@@ -10,7 +10,8 @@ namespace TreeAwarenessFirebase
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new View.HomePage());
+
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

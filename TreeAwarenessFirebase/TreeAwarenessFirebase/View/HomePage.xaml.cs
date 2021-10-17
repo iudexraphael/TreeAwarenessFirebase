@@ -29,9 +29,9 @@ namespace TreeAwarenessFirebase.View
         {
             await Navigation.PushAsync(new AboutInfo());
         }
-        //private async void PlantAtGardenPage(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new AddMessage());
-        //}
+        private async void PlantAtGardenPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddMessagePage());
+        }
     }
 }

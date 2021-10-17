@@ -5,10 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MvvmHelpers;
-
+using System.Windows.Input;
+using System.Runtime.CompilerServices;
 using TreeAwarenessFirebase.Services;
 using TreeAwarenessFirebase.Model;
 using System.Collections.ObjectModel;
+using Xamarin.Essentials;
+using System.Linq;
 
 namespace TreeAwarenessFirebase.ViewModel
 {
@@ -25,6 +28,8 @@ namespace TreeAwarenessFirebase.ViewModel
         public string Canopy { get; set; }
 
         private DBFirebase services;
+
+      
 
         public Command AddTreeCommand { get; }
         public ObservableCollection<TreeInfo> _trees = new ObservableCollection<TreeInfo>();
@@ -45,12 +50,17 @@ namespace TreeAwarenessFirebase.ViewModel
             AddTreeCommand = new Command(async () => await addTreeAsync(TreeCode, Name, InitialIdentification,
                 Notes, GPSCoordinates, Location, Landmark, Height, Canopy));
 
+        
+
         }
         public async Task addTreeAsync(int TreeCode, string Name,string InitialIdentification,string Notes, string GPSCoordinates, 
             string Location, string Landmark, string Height, string Canopy)
         {
             await services.AddTree(TreeCode, Name, InitialIdentification, Notes, GPSCoordinates, Location, Landmark, Height, Canopy);
         }
+
+       
+
 
     }
 }

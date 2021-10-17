@@ -15,16 +15,16 @@ using Xamarin.Essentials;
 
 namespace TreeAwarenessFirebase.View
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddTree : ContentPage
+    public partial class GeocodingPage : ContentPage
     {
-        public AddTree()
+        public GeocodingPage()
         {
             InitializeComponent();
             GetAddressCommand = new Command(async () => await OnGetAddress());
             GetPositionCommand = new Command(async () => await OnGetPosition());
-            BindingContext = new TreesViewModel();
+            BindingContext = this;
         }
+
         string lat = "47.673988";
         string lon = "-122.121513";
         string address = "Microsoft Building 25 Redmond WA USA";
@@ -139,7 +139,7 @@ namespace TreeAwarenessFirebase.View
             }
         }
 
-        protected virtual bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "", Action onChanged = null, Func<T, T, bool> validateValue = null)
+        protected virtual bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName]string propertyName = "", Action onChanged = null, Func<T, T, bool> validateValue = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
                 return false;
@@ -152,19 +152,7 @@ namespace TreeAwarenessFirebase.View
             OnPropertyChanged(propertyName);
             return true;
         }
-
-
-        async void OnAlertClicked(object sender, EventArgs e)
-        {
-            await DisplayAlert("Success", "Tree Details Added", "Ok");
-
-        }
-
-       
-        
-
         bool isGettingLocation;
-
         async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
             isGettingLocation = true;
@@ -180,7 +168,6 @@ namespace TreeAwarenessFirebase.View
         {
             isGettingLocation = false;
         }
-
 
     }
 }
